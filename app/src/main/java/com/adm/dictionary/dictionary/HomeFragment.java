@@ -48,7 +48,6 @@ public class HomeFragment extends BaseFragment {
     private ViewPager viewpager;
     private Dialog dialog;
     private View v;
-    // 继续背题 按键
     private Button reciteBtn;
     private TextView groupNameTv;
     private TextView sumCountTv;
@@ -82,7 +81,6 @@ public class HomeFragment extends BaseFragment {
                 } else {
                     Intent intent = new Intent(getActivity(), Html5Activity.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("url", "http://wyx.gege5.cn/pages/test.html"); // wyx.gege5.cn/pages/test.html
                     bundle.putString("groupId", String.valueOf(currentGroupId));
                     intent.putExtra("bundle", bundle);
                     startActivity(intent);

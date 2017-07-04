@@ -29,7 +29,7 @@ public class HttpMethods {
 
         Retrofit retrofit4 = new Retrofit.Builder()
                 .client(client)
-                .baseUrl("http://192.168.0.151:9090") // "http://192.168.0.151:9090" http://wyx.gege5.cn
+                .baseUrl("http://wyx.gege5.cn") // "http://192.168.0.151:9090" http://wyx.gege5.cn
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

@@ -43,7 +43,7 @@ import rx.schedulers.Schedulers;
 public class Html5Activity extends BaseActivity {
 
     private String userId, token;
-    private String mUrl;
+    private String mUrl = "http://wyx.gege5.cn/pages/test.html";
     private String groupId;
     private long mOldTime;
     private int position, sumCount;
@@ -64,12 +64,6 @@ public class Html5Activity extends BaseActivity {
         setContentView(R.layout.activity_web);
 
         Bundle bundle = getIntent().getBundleExtra("bundle");
-        if (bundle != null) {
-            mUrl = bundle.getString("url");
-        } else {
-            mUrl = "https://homiss.github.io/";
-        }
-
         groupId = bundle.getString("groupId");
 
         modifyLayout = findLinById(R.id.act_h5_modyfy);
