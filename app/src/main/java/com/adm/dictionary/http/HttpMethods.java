@@ -90,4 +90,12 @@ public class HttpMethods {
     public Observable<ResponseBody> getMineQuestionGroups(String userId, String token) {
         return service4.getMineQuestionGroups(userId, token);
     }
+
+    public Observable<ResponseBody> addGroupToMine(String userId, String token, String groupId) {
+        return service4.addGroupToMine(userId, token, groupId);
+    }
+
+    public Observable<ResponseBody> removeGroupFromMine(String userId, String token, String groupId) {
+        return service4.removeGroupFromMine(userId, token, groupId);
+    }
 }

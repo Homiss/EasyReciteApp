@@ -63,18 +63,14 @@ public class QuestionActivity extends BaseActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeBtn.setVisibility(View.VISIBLE);
-                addBtn.setVisibility(View.GONE);
-                hasAdd = true;
+                addGroupToMine();
             }
         });
 
         removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeBtn.setVisibility(View.GONE);
-                addBtn.setVisibility(View.VISIBLE);
-                hasAdd = false;
+                removeGroupFromMine();
             }
         });
     }
@@ -88,7 +84,7 @@ public class QuestionActivity extends BaseActivity {
         groupName = (String) getIntent().getSerializableExtra("groupName");
 
         titleTv.setText(groupName);
-        if(!HttpUtil.isNetworkAvailable(this)){
+        if (!HttpUtil.isNetworkAvailable(this)) {
             showToast("当前网络不可用,加载信息失败");
         } else {
             HttpMethods.getInstance().getQuestionListByGroupId(userId, token, groupId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<ResponseBody>() {
@@ -96,11 +92,11 @@ public class QuestionActivity extends BaseActivity {
                 public void call(final ResponseBody res) {
                     try {
                         JSONObject obj = new JSONObject(res.string());
-                        if(obj.getBoolean("success")){
+                        if (obj.getBoolean("success")) {
                             list = new ArrayList<>();
                             hasAdd = obj.getJSONObject("data").getBoolean("hasAdd"); // 当前用户是否已添加当前题库
                             JSONArray items = obj.getJSONObject("data").getJSONArray("list");
-                            for(int i = 0; i < items.length(); i++){
+                            for (int i = 0; i < items.length(); i++) {
                                 QuestionBean bean = new QuestionBean();
                                 bean.setQuestion(items.getJSONObject(i).getString("question"));
                                 bean.setAnswer(items.getJSONObject(i).getString("answer"));
@@ -108,7 +104,7 @@ public class QuestionActivity extends BaseActivity {
                             }
                             setUpData();
                         } else {
-                            if(obj.getString("returnCode").equals("403")){ // 跳转到登录界面
+                            if (obj.getString("returnCode").equals("403")) { // 跳转到登录界面
                                 Intent intent = new Intent(getApplication(), LoginAndRegistActivity.class);
                                 startActivity(intent);
                                 return;
@@ -135,7 +131,7 @@ public class QuestionActivity extends BaseActivity {
     private void setUpData() {
         adapter = new DictAdapter();
         lv.setAdapter(adapter);
-        if(hasAdd){
+        if (hasAdd) {
             removeBtn.setVisibility(View.VISIBLE);
             addBtn.setVisibility(View.GONE);
         } else {
@@ -181,5 +177,66 @@ public class QuestionActivity extends BaseActivity {
         class ViewHolder {
             TextView question, answer;
         }
+    }
+
+    private void addGroupToMine() {
+        HttpMethods.getInstance().addGroupToMine(userId, token, groupId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<ResponseBody>() {
+            @Override
+            public void call(final ResponseBody res) {
+                JSONObject obj = null;
+                try {
+                    obj = new JSONObject(res.string());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (obj.optBoolean("success")) {
+                    showToast(obj.optString("data"));
+                    removeBtn.setVisibility(View.VISIBLE);
+                    addBtn.setVisibility(View.GONE);
+                    hasAdd = true;
+                } else {
+                    if (obj.optString("returnCode").equals("403")) { // 跳转到登录界面
+                        Intent intent = new Intent(getApplication(), LoginAndRegistActivity.class);
+                        startActivity(intent);
+                        return;
+                    }
+                    showToast("出错了～");
+                    return;
+                }
+
+            }
+        });
+    }
+
+    private void removeGroupFromMine() {
+        HttpMethods.getInstance().removeGroupFromMine(userId, token, groupId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<ResponseBody>() {
+            @Override
+            public void call(final ResponseBody res) {
+                JSONObject obj = null;
+                try {
+                    obj = new JSONObject(res.string());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (obj.optBoolean("success")) {
+                    showToast(obj.optString("data"));
+                    removeBtn.setVisibility(View.GONE);
+                    addBtn.setVisibility(View.VISIBLE);
+                    hasAdd = false;
+                } else {
+                    if (obj.optString("returnCode").equals("403")) { // 跳转到登录界面
+                        Intent intent = new Intent(getApplication(), LoginAndRegistActivity.class);
+                        startActivity(intent);
+                        return;
+                    }
+                    showToast("出错了～");
+                    return;
+                }
+            }
+        });
     }
 }

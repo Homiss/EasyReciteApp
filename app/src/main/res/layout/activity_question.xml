@@ -48,7 +48,7 @@
             android:id="@+id/act_que_remove_btn"
             android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:text="移除我的题库"
+            android:text="从我的题库移除"
             android:background="@drawable/translate"
             android:textColor="@color/white"
             android:textSize="14sp"

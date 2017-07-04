@@ -97,5 +97,25 @@ public interface ApiService {
     Observable<ResponseBody> modifyAnswer(@Field("userId") String userId, @Field("token") String token,
                                           @Field("id") Integer id, @Field("answer") String answer);
 
+    /**
+     * 当前题库添加到我的题库里
+     * @param userId
+     * @param token
+     * @param groupId
+     * @return
+     */
+    @POST("/easyRecite/api/app/question/v1/group/addToMine")
+    Observable<ResponseBody> addGroupToMine(@Query("userId") String userId, @Query("token") String token,
+                                            @Query("groupId") String groupId);
 
+    /**
+     * 将当前题库从我的题库里移除
+     * @param userId
+     * @param token
+     * @param groupId
+     * @return
+     */
+    @POST("/easyRecite/api/app/question/v1/group/removeFromMine")
+    Observable<ResponseBody> removeGroupFromMine(@Query("userId") String userId, @Query("token") String token,
+                                                 @Query("groupId") String groupId);
 }
