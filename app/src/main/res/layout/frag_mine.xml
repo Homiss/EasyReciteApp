@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dip"
+                android:background="@color/blue"
+                android:gravity="end">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@color/blue"
+                android:paddingBottom="0dp" >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+                    <android.support.v7.widget.CardView
+                        android:layout_width="100dip"
+                        android:layout_height="100dip"
+                        android:layout_marginTop="50dp"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="12dp"
+                        app:cardPreventCornerOverlap="true" >
+                        <ImageView
+                            android:id="@+id/frag_mine_headpic"
+                            android:layout_width="100dip"
+                            android:layout_height="100dip"
+                            android:layout_gravity="center_horizontal"
+                            android:scaleType="centerCrop" />
+                    </android.support.v7.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/frag_mine_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dip"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="10pt" />
+                    <TextView
+                        android:id="@+id/frag_mine_sentence"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text=""
+                        android:textColor="@color/white"
+                        android:textSize="6pt" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:padding="5dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_btn_bg_color" />
+                <TextView
+                    android:id="@+id/frag_mine_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="个人资料"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="10dip"
+                    android:layout_height="10dip"
+                    android:layout_alignBottom="@id/frag_mine_1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/frag_mine_1"
+                    android:layout_marginRight="20dip"
+                    android:background="@mipmap/usercenter_arrow"
+                    android:contentDescription="@null"
+                    android:scaleType="centerInside" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_below="@id/frag_mine_1"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_btn_bg_color" />
+                <TextView
+                    android:id="@+id/frag_minegroup_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="我的题库"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="10dip"
+                    android:layout_height="10dip"
+                    android:layout_alignBottom="@id/frag_minegroup_1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/frag_minegroup_1"
+                    android:layout_marginRight="20dip"
+                    android:background="@mipmap/usercenter_arrow"
+                    android:contentDescription="@null"
+                    android:scaleType="centerInside" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_below="@id/frag_minegroup_1"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_btn_bg_color" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+                <TextView
+                    android:id="@+id/frag_mine_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="密码修改"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="10dip"
+                    android:layout_height="10dip"
+                    android:layout_alignBottom="@id/frag_mine_2"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/frag_mine_2"
+                    android:layout_marginRight="20dip"
+                    android:background="@mipmap/usercenter_arrow"
+                    android:contentDescription="@null"
+                    android:scaleType="centerInside" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_below="@id/frag_mine_2"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_btn_bg_color" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+                <TextView
+                    android:id="@+id/frag_mine_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dip"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="检查更新"
+                    android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="10dip"
+                    android:layout_height="10dip"
+                    android:layout_alignBottom="@id/frag_mine_3"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@id/frag_mine_3"
+                    android:layout_marginRight="20dip"
+                    android:background="@mipmap/usercenter_arrow"
+                    android:contentDescription="@null"
+                    android:scaleType="centerInside" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dip"
+                    android:layout_below="@id/frag_mine_3"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_btn_bg_color" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:gravity="center">
+                <Button
+                    android:layout_width="200dip"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/translate"
+                    android:textColor="@color/white"
+                    android:text="退出登录"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/act_h5_label"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/blue"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <android.support.v7.widget.CardView android:id="@+id/act_h5_cardView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="1"
+                                        android:layout_gravity="center"
+                                        app:cardUseCompatPadding="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/act_h5_card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/act_h5_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textSize="24sp" />
+                <LinearLayout
+                    android:id="@+id/act_h5_modyfy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <TextView
+                        android:id="@+id/item_prac_modify_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="答案调整？"
+                        android:textColor="@color/blue" />
+                    <EditText
+                        android:id="@+id/item_prac_modify"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:paddingBottom="20dp"
+                        android:text=""
+                        android:textSize="16sp" />
+                    <Button
+                        android:id="@+id/item_prac_modify_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:background="@color/blue"
+                        android:textColor="@color/white"
+                        android:text="确认修改" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/act_h5_web"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|end"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="-5dp"
+                android:src="@drawable/ic_bookmark_24dp" />
+
+        </FrameLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/act_prac_unshow"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/unremember"
+            android:text="不再显示"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/act_prac_remember"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="记得"
+            android:background="@drawable/square_blue_btn"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/act_prac_unremember"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/remember"
+            android:text="不记得"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>
