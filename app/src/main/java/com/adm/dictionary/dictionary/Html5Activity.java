@@ -78,12 +78,9 @@ public class Html5Activity extends BaseActivity {
 
         initView();
         getData();
-
     }
 
     public void initView() {
-
-
         modifyText = (EditText) findViewById(R.id.item_prac_modify);
         modifyTv = (TextView) findViewById(R.id.item_prac_modify_tv);
         modifyConfirm = (Button) findViewById(R.id.item_prac_modify_confirm);
@@ -154,7 +151,6 @@ public class Html5Activity extends BaseActivity {
                 modifyTv.setVisibility(View.VISIBLE);
             }
         });
-
 
         modifyTv.setOnClickListener(new View.OnClickListener() {
             @Override

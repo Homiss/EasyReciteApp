@@ -1,4 +1,4 @@
-package com.adm.dictionary.dictionary;
+package com.adm.dictionary.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

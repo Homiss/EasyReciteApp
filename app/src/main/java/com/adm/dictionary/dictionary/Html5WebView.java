@@ -11,6 +11,8 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.adm.dictionary.util.NetStatusUtil;
+
 import java.io.File;
 
 import static android.webkit.WebSettings.LOAD_NO_CACHE;
@@ -74,7 +76,6 @@ public class Html5WebView extends WebView {
      */
     private void saveData(WebSettings mWebSettings) {
         //有时候网页需要自己保存一些关键数据,Android WebView 需要自己设置
-
         if (NetStatusUtil.isConnected(mContext)) {
             mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT);//根据cache-control决定是否从网络上取数据。
         } else {
