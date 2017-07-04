@@ -41,6 +41,7 @@ public interface ApiService {
     @POST("/easyRecite/api/app/setting/v1")
     Observable<ResponseBody> getSetting(@Query("userId") String userId, @Query("token") String token);
 
+
     @POST("/easyRecite/api/app/setting/v1/modify/model")
     Observable<ResponseBody> modifyReciteModel(@Query("userId") String userId, @Query("token") String token, @Query("model") String model);
 
@@ -118,4 +119,16 @@ public interface ApiService {
     @POST("/easyRecite/api/app/question/v1/group/removeFromMine")
     Observable<ResponseBody> removeGroupFromMine(@Query("userId") String userId, @Query("token") String token,
                                                  @Query("groupId") String groupId);
+
+    /**
+     * 修改默认题库
+     * @param userId
+     * @param token
+     * @param groupId
+     * @return
+     */
+    @POST("/easyRecite/api/app/setting/v1/modify/group")
+    Observable<ResponseBody> modifyReciteGroup(@Query("userId") String userId,
+                                               @Query("token") String token,
+                                               @Query("groupId") Integer groupId);
 }

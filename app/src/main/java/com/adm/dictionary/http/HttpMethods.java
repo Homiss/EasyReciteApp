@@ -98,4 +98,8 @@ public class HttpMethods {
     public Observable<ResponseBody> removeGroupFromMine(String userId, String token, String groupId) {
         return service4.removeGroupFromMine(userId, token, groupId);
     }
+
+    public Observable<ResponseBody> modifyReciteGroup(String userId, String token, Integer groupId) {
+        return service4.modifyReciteGroup(userId, token, groupId);
+    }
 }

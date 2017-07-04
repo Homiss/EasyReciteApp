@@ -70,6 +70,8 @@ public class Html5Activity extends BaseActivity {
             mUrl = "https://homiss.github.io/";
         }
 
+        groupId = bundle.getString("groupId");
+
         modifyLayout = findLinById(R.id.act_h5_modyfy);
         mLayout = (LinearLayout) findViewById(R.id.act_h5_web);
 
@@ -82,11 +84,11 @@ public class Html5Activity extends BaseActivity {
 
         initView();
         getData();
-        initWebViewClient();
+
     }
 
     public void initView() {
-        groupId = getIntent().getStringExtra("groupId");
+
 
         modifyText = (EditText) findViewById(R.id.item_prac_modify);
         modifyTv = (TextView) findViewById(R.id.item_prac_modify_tv);
@@ -206,6 +208,7 @@ public class Html5Activity extends BaseActivity {
                         List<QuestionBean> questionBeenList = convertToQuestionBean(items);
                         list = questionBeenList;
                         sumCount = list.size();
+                        initWebViewClient();
                     } else {
                         showToast("出错了～");
                         finish();
