@@ -137,7 +137,6 @@ public class Html5Activity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 questionTv.setGravity(Gravity.CENTER_HORIZONTAL);
-                questionTv.setHeight(100);
                 mLayout.setVisibility(View.VISIBLE);
                 modifyTv.setVisibility(View.VISIBLE);
             }
@@ -146,7 +145,6 @@ public class Html5Activity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 questionTv.setGravity(Gravity.CENTER_HORIZONTAL);
-                questionTv.setHeight(100);
                 mLayout.setVisibility(View.VISIBLE);
                 modifyTv.setVisibility(View.VISIBLE);
             }
@@ -157,9 +155,7 @@ public class Html5Activity extends BaseActivity {
             public void onClick(View v) {
                 mLayout.setVisibility(View.GONE);
                 questionTv.setVisibility(View.GONE);
-                // questionTvTmp.setVisibility(View.GONE);
                 modifyText.setText(list.get(position).getAnswer());
-                modifyLayout.setVisibility(View.VISIBLE);
             }
         });
 
