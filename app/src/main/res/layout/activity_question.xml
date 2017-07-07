@@ -16,14 +16,12 @@
         android:textSize="18sp" />
 
     <LinearLayout
+        android:id="@+id/act_question_web"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-        <ListView
-            android:id="@+id/act_que_lv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fastScrollEnabled="true" />
+        android:layout_weight="1"
+        android:orientation="vertical">
+
     </LinearLayout>
 
     <LinearLayout

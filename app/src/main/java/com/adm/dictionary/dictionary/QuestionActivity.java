@@ -1,14 +1,22 @@
 package com.adm.dictionary.dictionary;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.adm.dictionary.base.BaseActivity;
@@ -39,11 +47,11 @@ public class QuestionActivity extends BaseActivity {
     private String groupId, groupName;
     private Boolean hasAdd;
 
-    private ListView lv;
     private TextView titleTv;
     private Button addBtn, removeBtn;
     private List<QuestionBean> list;
-    private DictAdapter adapter;
+    private WebView mWebView;
+    private LinearLayout webLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,9 +64,16 @@ public class QuestionActivity extends BaseActivity {
     @Override
     public void initView() {
         titleTv = findTextViewById(R.id.act_que_title);
-        lv = (ListView) findViewById(R.id.act_que_lv);
         addBtn = findButById(R.id.act_que_add_btn);
         removeBtn = findButById(R.id.act_que_remove_btn);
+        webLayout = findLinById(R.id.act_question_web);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
+                .MATCH_PARENT);
+        mWebView = new Html5WebView(getApplicationContext());
+        mWebView.setLayoutParams(params);
+        webLayout.addView(mWebView);
+        mWebView.loadUrl("http://wyx.gege5.cn/pages/thread.html?v=3");
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,13 +139,11 @@ public class QuestionActivity extends BaseActivity {
 
     }
 
-
     /**
      * 获取数据绑定到控件上
      */
     private void setUpData() {
-        adapter = new DictAdapter();
-        lv.setAdapter(adapter);
+        initWebViewClient();
         if (hasAdd) {
             removeBtn.setVisibility(View.VISIBLE);
             addBtn.setVisibility(View.GONE);
@@ -138,6 +151,41 @@ public class QuestionActivity extends BaseActivity {
             removeBtn.setVisibility(View.GONE);
             addBtn.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void initWebViewClient() {
+        mWebView.setWebViewClient(new WebViewClient() {
+
+            //页面开始加载时
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+            }
+
+            //页面完成加载时
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                mWebView.loadUrl("javascript:actionFromNativeWithParam(" + "'" + list.get(0).getAnswer() + "'" + ")");
+            }
+
+            //网络错误时回调的方法
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                /**
+                 * 在这里写网络错误时的逻辑,比如显示一个错误页面
+                 *
+                 * 这里我偷个懒不写了
+                 * */
+            }
+
+            @TargetApi(Build.VERSION_CODES.M)
+            @Override
+            public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+                super.onReceivedHttpError(view, request, errorResponse);
+            }
+        });
     }
 
     class DictAdapter extends BaseAdapter {
