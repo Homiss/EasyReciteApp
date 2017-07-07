@@ -35,6 +35,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text=""
+                    android:textColor="#33425B"
                     android:textSize="28sp" />
                 <TextView
                     android:id="@+id/frag_home_sum_count"
@@ -44,6 +45,7 @@
                     android:layout_marginTop="20dp"
                     android:gravity="center"
                     android:text=""
+                    android:textColor="#33425B"
                     android:textSize="22sp"/>
             </LinearLayout>
 

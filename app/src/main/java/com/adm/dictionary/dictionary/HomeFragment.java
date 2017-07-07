@@ -240,7 +240,7 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void refreshWave(){
-        waveView.setBorder(0, Color.parseColor("#FFFFFF"));
+        waveView.setBorder(2, Color.parseColor("#FFFFFF"));
         waveView.setWaveColor(
                 Color.parseColor("#b8f1ed"),
                 Color.parseColor("#FFFFFF"));
