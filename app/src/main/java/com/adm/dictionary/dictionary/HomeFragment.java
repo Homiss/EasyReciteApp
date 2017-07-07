@@ -217,6 +217,7 @@ public class HomeFragment extends BaseFragment {
                     e.printStackTrace();
                 }
                 if (obj.optBoolean("success")) {
+                    getData();
                     showToast(obj.optString("data"));
                 } else {
                     if (obj.optString("returnCode").equals("403")) { // 跳转到登录界面
@@ -244,7 +245,7 @@ public class HomeFragment extends BaseFragment {
                 Color.parseColor("#b8f1ed"),
                 Color.parseColor("#FFFFFF"));
         waveView.setShapeType(WaveView.ShapeType.CIRCLE);
-        float waveLength = setting.getReciteNum() * 1.0f / setting.getSumCount();
+        float waveLength = setting.getHasReciteCount() * 1.0f / setting.getSumCount();
         mWaveHelper = new WaveHelper(waveView, waveLength);
         mWaveHelper.start();
     }
