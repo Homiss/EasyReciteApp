@@ -14,7 +14,6 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -186,45 +185,6 @@ public class QuestionActivity extends BaseActivity {
                 super.onReceivedHttpError(view, request, errorResponse);
             }
         });
-    }
-
-    class DictAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return list.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return list.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View v, ViewGroup parent) {
-            ViewHolder vh = null;
-            if (v == null) {
-                v = View.inflate(QuestionActivity.this, R.layout.item_question, null);
-                vh = new ViewHolder();
-                vh.question = (TextView) v.findViewById(R.id.item_record_question);
-                // vh.answer = (TextView) v.findViewById(R.id.item_record_answer);
-                v.setTag(vh);
-            } else {
-                vh = (ViewHolder) v.getTag();
-            }
-            vh.question.setText(list.get(position).getQuestion());
-            // vh.answer.setText(list.get(position).getAnswer());
-            return v;
-        }
-
-        class ViewHolder {
-            TextView question, answer;
-        }
     }
 
     private void addGroupToMine() {

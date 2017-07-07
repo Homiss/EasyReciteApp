@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PlanPracticeActivity" />
         <activity android:name=".LoginAndRegistActivity"
                   android:screenOrientation="portrait"
                   android:windowSoftInputMode="adjustResize" />
