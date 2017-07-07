@@ -38,5 +38,6 @@ public abstract class BaseFragment extends Fragment {
         Toast.makeText(getActivity(), str, Toast.LENGTH_SHORT).show();
     }
 
+
     public abstract void initView();
 }

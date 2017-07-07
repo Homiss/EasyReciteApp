@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -17,6 +18,7 @@ import com.adm.dictionary.base.BaseFragment;
 import com.adm.dictionary.bean.Setting;
 import com.adm.dictionary.http.HttpMethods;
 import com.adm.dictionary.util.HttpUtil;
+import com.gelitenight.waveview.library.WaveView;
 import com.zhl.cbdialog.CBDialogBuilder;
 
 import org.json.JSONArray;
@@ -39,6 +41,8 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class HomeFragment extends BaseFragment {
 
+    private WaveHelper mWaveHelper;
+
     private String userId, token;
     private JSONArray groupsArray;
     private String[] groups;
@@ -55,6 +59,7 @@ public class HomeFragment extends BaseFragment {
 
     private Setting setting;
 
+    private WaveView waveView;
 
     @Nullable
     @Override
@@ -67,6 +72,9 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initView() {
+        waveView = (WaveView) v.findViewById(R.id.wave);
+
+
         reciteBtn = findButById(v, R.id.frag_home_recite);
 
         groupNameTv = findTextViewbyId(v, R.id.frag_home_group_name);
@@ -224,14 +232,32 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void refresh() {
+        refreshWave();
         groupNameTv.setText(setting.getGroupName());
         currentGroupId = setting.getGroupId();
         sumCountTv.setText("今日待背：" + setting.getReciteNum() + "道");
     }
 
+    private void refreshWave(){
+        waveView.setBorder(0, Color.parseColor("#FFFFFF"));
+        waveView.setWaveColor(
+                Color.parseColor("#b8f1ed"),
+                Color.parseColor("#FFFFFF"));
+        waveView.setShapeType(WaveView.ShapeType.CIRCLE);
+        float waveLength = setting.getReciteNum() * 1.0f / setting.getSumCount();
+        mWaveHelper = new WaveHelper(waveView, waveLength);
+        mWaveHelper.start();
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 
     public void setViewpager(ViewPager viewpager) {

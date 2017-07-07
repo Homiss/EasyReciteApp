@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:background="@color/blue">
 
-    <android.support.v7.widget.CardView
-            android:id="@+id/cardView"
+    <RelativeLayout
+        android:id="@+id/frag_home_rel_wave"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="32dp"
+        android:layout_centerHorizontal="true">
+        <com.gelitenight.waveview.library.WaveView
+            android:id="@+id/wave"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_gravity="center"
-            app:cardUseCompatPadding="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            app:cardCornerRadius="110dp">
+            android:layout_centerHorizontal="true" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true">
             <LinearLayout
                 android:id="@+id/item_prac_card"
                 android:layout_width="match_parent"
@@ -28,7 +29,6 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="24dp">
-
                 <TextView
                     android:id="@+id/frag_home_group_name"
                     style="@style/TextAppearance.AppCompat.Title"
@@ -36,9 +36,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text=""
-                    android:textSize="28sp"
-                    android:textColor="@color/blue" />
-
+                    android:textSize="28sp" />
                 <TextView
                     android:id="@+id/frag_home_sum_count"
                     style="@style/TextAppearance.AppCompat.Title"
@@ -46,13 +44,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="100题"
-                    android:textSize="20sp"/>
+                    android:text=""
+                    android:textSize="22sp"/>
             </LinearLayout>
 
         </FrameLayout>
-
-    </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/frag_home_recite"
@@ -63,14 +60,15 @@
         android:layout_marginRight="60dp"
         android:layout_marginTop="20dp"
         android:background="#ffffff"
+        android:layout_below="@id/frag_home_rel_wave"
         android:text="继续背题"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:gravity="center"
+        android:layout_below="@id/frag_home_recite"
         android:orientation="horizontal">
         <TextView
             android:id="@+id/frag_tui_des"
@@ -103,4 +101,4 @@
             android:text="更换题库"/>
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
