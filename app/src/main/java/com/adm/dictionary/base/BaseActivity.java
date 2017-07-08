@@ -37,6 +37,4 @@ public abstract class BaseActivity extends FragmentActivity {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 
-    public abstract void initView();
-
 }

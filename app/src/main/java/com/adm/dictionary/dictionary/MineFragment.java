@@ -28,13 +28,14 @@ public class MineFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.frag_mine, null);
-        initView();
+        findId();
+        // initListener();
+        initData();
         initData();
         return v;
     }
 
-    @Override
-    public void initView() {
+    public void findId() {
         headpicImg = findImageViewbyId(v, R.id.frag_mine_headpic);
         nameTv = findTextViewbyId(v, R.id.frag_mine_name);
         sentenceTv = findTextViewbyId(v, R.id.frag_mine_sentence);

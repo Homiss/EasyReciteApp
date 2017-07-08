@@ -65,22 +65,21 @@ public class HomeFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.frag_home, null);
-        initView();
-        getData();
+        findId();
+        initListener();
+        initData();
         return v;
     }
 
-    @Override
-    public void initView() {
+    private void findId() {
         waveView = (WaveView) v.findViewById(R.id.wave);
-
-
         reciteBtn = findButById(v, R.id.frag_home_recite);
-
         groupNameTv = findTextViewbyId(v, R.id.frag_home_group_name);
         sumCountTv = findTextViewbyId(v, R.id.frag_home_sum_count);
         modifyGroupTv = findTextViewbyId(v, R.id.frag_home_modifygroup);
+    }
 
+    public void initListener() {
         reciteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +94,6 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
-
         modifyGroupTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +143,7 @@ public class HomeFragment extends BaseFragment {
         });
     }
 
-    private void getData() {
+    private void initData() {
         SharedPreferences userInfo = getActivity().getSharedPreferences("userinfo", MODE_PRIVATE);
         userId = userInfo.getString("userId", null);
         token = userInfo.getString("token", null);
@@ -217,7 +215,7 @@ public class HomeFragment extends BaseFragment {
                     e.printStackTrace();
                 }
                 if (obj.optBoolean("success")) {
-                    getData();
+                    initData();
                     showToast(obj.optString("data"));
                 } else {
                     if (obj.optString("returnCode").equals("403")) { // 跳转到登录界面
