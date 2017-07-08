@@ -153,8 +153,8 @@ public class QuestionListFragment extends BaseFragment {
                 v = View.inflate(getActivity(), R.layout.item_plan, null);
                 vh = new QuestionListFragment.PlanAdapter.ViewHolder();
                 vh.cv = (CardView) v.findViewById(R.id.item_plan_cv);
-                vh.name = (TextView) v.findViewById(R.id.item_plan_name);
-                vh.des = (TextView) v.findViewById(R.id.item_plan_des);
+                vh.name = (TextView) v.findViewById(R.id.item_question_name);
+                vh.des = (TextView) v.findViewById(R.id.item_question_num);
                 v.setTag(vh);
             } else {
                 vh = (QuestionListFragment.PlanAdapter.ViewHolder) v.getTag();

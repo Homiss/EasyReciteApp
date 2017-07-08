@@ -11,27 +11,58 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
-
+            android:padding="5dp">
+            <android.support.v7.widget.CardView
+                android:id="@+id/item_question_img"
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                app:cardCornerRadius="40dp"
+                android:layout_margin="5dp">
+                <ImageView
+                    android:layout_width="80dip"
+                    android:layout_height="80dip"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop" />
+            </android.support.v7.widget.CardView>
             <TextView
-                android:id="@+id/item_plan_name"
+                android:id="@+id/item_question_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22sp" />
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp"
+                android:text="Java Thread"
+                android:layout_toRightOf="@id/item_question_img"/>
 
             <TextView
-                android:id="@+id/item_plan_des"
+                android:id="@+id/item_question_num"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
                 android:lineSpacingExtra="3dp"
-                android:textSize="15sp" />
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:layout_marginTop="5dp"
+                android:text="题目数量: 96"
+                android:layout_below="@+id/item_question_name"
+                android:layout_toRightOf="@id/item_question_img"
+                />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/item_question_joinnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="15sp"
+                android:text="已有164人参加"
+                android:layout_below="@+id/item_question_num"
+                android:layout_toRightOf="@id/item_question_img"
+                />
 
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>
