@@ -55,7 +55,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         homeFrag.setViewpager(viewpager);
         fragments.add(homeFrag);
         fragments.add(new QuestionListFragment());
-        fragments.add(new MineTestFragment());
+        fragments.add(new MineFragment());
         imgs = new ImageView[]{img1, img2, img3};
         tvs = new TextView[]{tv1, tv2, tv3};
         pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
