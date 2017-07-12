@@ -56,12 +56,12 @@ public class QuestionActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-        initView();
-        getData();
+        findId();
+        initListener();
+        initData();
     }
 
-    @Override
-    public void initView() {
+    public void findId() {
         titleTv = findTextViewById(R.id.act_que_title);
         addBtn = findButById(R.id.act_que_add_btn);
         removeBtn = findButById(R.id.act_que_remove_btn);
@@ -73,7 +73,9 @@ public class QuestionActivity extends BaseActivity {
         mWebView.setLayoutParams(params);
         webLayout.addView(mWebView);
         mWebView.loadUrl("http://wyx.gege5.cn/pages/thread.html?v=3");
+    }
 
+    private void initListener() {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +91,7 @@ public class QuestionActivity extends BaseActivity {
         });
     }
 
-    private void getData() {
+    private void initData() {
         SharedPreferences userInfo = getSharedPreferences("userinfo", MODE_PRIVATE);
         userId = userInfo.getString("userId", null);
         token = userInfo.getString("token", null);
@@ -134,8 +136,6 @@ public class QuestionActivity extends BaseActivity {
                 }
             });
         }
-
-
     }
 
     /**

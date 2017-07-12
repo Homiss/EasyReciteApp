@@ -25,7 +25,6 @@ public class WaveHelper {
         initAnimation();
     }
 
-
     public void start() {
         mWaveView.setShowWave(true);
         if (mAnimatorSet != null) {

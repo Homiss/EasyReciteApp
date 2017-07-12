@@ -35,36 +35,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
-        setListener();
+        findId();
+        initListener();
     }
 
-    /**
-     * 设置监听事件
-     */
-    private void setListener() {
-        lin1.setOnClickListener(this);
-        lin2.setOnClickListener(this);
-        lin3.setOnClickListener(this);
-    }
-
-    /**
-     * 初始化控件
-     */
-    @Override
-    public void initView() {
-
+    private void findId() {
         lin1 = findLinById(R.id.act_main_lin1);
         lin2 = findLinById(R.id.act_main_lin2);
         lin3 = findLinById(R.id.act_main_lin3);
-
-        SharedPreferences userInfo = getSharedPreferences("userinfo", MODE_PRIVATE);
-        token = userInfo.getString("token", null);
-        if(token == null){
-            Intent intent = new Intent(this, LoginAndRegistActivity.class);
-            startActivity(intent);
-            return;
-        }
 
         ImageView img1 = findImageViewById(R.id.act_main_img1);
         ImageView img2 = findImageViewById(R.id.act_main_img2);
@@ -83,6 +61,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         pagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
         viewpager.setAdapter(pagerAdapter);
         viewpager.setOffscreenPageLimit(3);
+    }
+
+    public void initListener() {
+        lin1.setOnClickListener(this);
+        lin2.setOnClickListener(this);
+        lin3.setOnClickListener(this);
+
+        SharedPreferences userInfo = getSharedPreferences("userinfo", MODE_PRIVATE);
+        token = userInfo.getString("token", null);
+        if(token == null){
+            Intent intent = new Intent(this, LoginAndRegistActivity.class);
+            startActivity(intent);
+            return;
+        }
+
         /**
          * 设置ViewPager的滑动事件
          */

@@ -40,26 +40,22 @@ public class LoginAndRegistActivity extends BaseActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_and_regist);
-        initView();
-
+        findId();
+        initListener();
         initData();
     }
 
-    @Override
-    public void initView() {
+    private void findId() {
         loginLin = findLinById(R.id.act_login);
         registLin = findLinById(R.id.act_regist);
         forgetLin = findLinById(R.id.act_forget);
-
         loginBtn1 = findTextViewById(R.id.act_login_btn1);
         registBtn1 = findTextViewById(R.id.act_regist_btn1);
         forgetBtn1 = findTextViewById(R.id.act_forget_btn1);
         loginBtn2 = findTextViewById(R.id.act_login_btn2);
         registBtn2 = findTextViewById(R.id.act_regist_btn2);
         forgetBtn2 = findTextViewById(R.id.act_forget_btn2);
-
         loginSubmitBtn = findButById(R.id.act_login_submit);
-
         loginPhoneEt = findEtnById(R.id.act_login_phone);
         loginPasswordEt = findEtnById(R.id.act_login_password);
         registPhoneEt = findEtnById(R.id.act_regist_phone);
@@ -68,18 +64,10 @@ public class LoginAndRegistActivity extends BaseActivity {
         forgetPhoneEt = findEtnById(R.id.act_forget_phone);
         forgetPassword = findEtnById(R.id.act_forget_password);
         forgetCodeEt = findEtnById(R.id.act_forget_code);
-
-        addClickEvent();
     }
 
-    private void initData() {
-        SharedPreferences userInfo = getSharedPreferences("userinfo", MODE_PRIVATE);
-        String phone = userInfo.getString("phone", null);
-        if(phone != null) loginPhoneEt.setText(phone);
-    }
 
-    private void addClickEvent() {
-
+    public void initListener() {
         loginSubmitBtn.setOnClickListener(new View.OnClickListener()  {
             @Override
             public void onClick(View v) {
@@ -176,4 +164,11 @@ public class LoginAndRegistActivity extends BaseActivity {
             }
         });
     }
+
+    private void initData() {
+        SharedPreferences userInfo = getSharedPreferences("userinfo", MODE_PRIVATE);
+        String phone = userInfo.getString("phone", null);
+        if(phone != null) loginPhoneEt.setText(phone);
+    }
+
 }

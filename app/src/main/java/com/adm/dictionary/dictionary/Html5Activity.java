@@ -54,6 +54,7 @@ public class Html5Activity extends BaseActivity {
     TextView modifyTv;
     EditText modifyText;
     Button modifyConfirm;
+    CardView cardView;
     private WebView mWebView;
     private Button remember, unremember, unshow;
 
@@ -63,24 +64,14 @@ public class Html5Activity extends BaseActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_web);
 
-        Bundle bundle = getIntent().getBundleExtra("bundle");
-        groupId = bundle.getString("groupId");
-
-        modifyLayout = findLinById(R.id.act_h5_modyfy);
-        mLayout = (LinearLayout) findViewById(R.id.act_h5_web);
-
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
-                .MATCH_PARENT);
-        mWebView = new Html5WebView(getApplicationContext());
-        mWebView.setLayoutParams(params);
-        mLayout.addView(mWebView);
-        mWebView.loadUrl(mUrl);
-
-        initView();
-        getData();
+        findId();
+        initListener();
+        initData();
     }
 
-    public void initView() {
+    private void findId() {
+        modifyLayout = findLinById(R.id.act_h5_modyfy);
+        mLayout = (LinearLayout) findViewById(R.id.act_h5_web);
         modifyText = (EditText) findViewById(R.id.item_prac_modify);
         modifyTv = (TextView) findViewById(R.id.item_prac_modify_tv);
         modifyConfirm = (Button) findViewById(R.id.item_prac_modify_confirm);
@@ -89,7 +80,17 @@ public class Html5Activity extends BaseActivity {
         remember = (Button) findViewById(R.id.act_prac_remember);
         unremember = (Button) findViewById(R.id.act_prac_unremember);
         unshow = (Button) findViewById(R.id.act_prac_unshow);
+        cardView = (CardView) findViewById(R.id.act_h5_cardView);
 
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams
+                .MATCH_PARENT);
+        mWebView = new Html5WebView(getApplicationContext());
+        mWebView.setLayoutParams(params);
+        mLayout.addView(mWebView);
+        mWebView.loadUrl(mUrl);
+    }
+
+    private void initListener() {
         unshow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,8 +132,6 @@ public class Html5Activity extends BaseActivity {
                 }
             }
         });
-
-        CardView cardView = (CardView) findViewById(R.id.act_h5_cardView);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +148,6 @@ public class Html5Activity extends BaseActivity {
                 modifyTv.setVisibility(View.VISIBLE);
             }
         });
-
         modifyTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,7 +156,6 @@ public class Html5Activity extends BaseActivity {
                 modifyText.setText(list.get(position).getAnswer());
             }
         });
-
         modifyConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,7 +167,10 @@ public class Html5Activity extends BaseActivity {
         });
     }
 
-    private void getData(){
+    private void initData(){
+        Bundle bundle = getIntent().getBundleExtra("bundle");
+        groupId = bundle.getString("groupId");
+
         SharedPreferences userInfo = getSharedPreferences("userinfo", MODE_PRIVATE);
         userId = userInfo.getString("userId", null);
         token = userInfo.getString("token", null);

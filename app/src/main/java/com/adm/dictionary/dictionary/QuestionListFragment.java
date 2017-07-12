@@ -51,21 +51,20 @@ public class QuestionListFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.frag_question_list, null);
-        initView();
-        getData();
+        findId();
+        initListener();
+        initData();
         return v;
     }
 
-    @Override
-    public void initView() {
-        SharedPreferences userInfo = getActivity().getSharedPreferences("userinfo", MODE_PRIVATE);
-        userId = userInfo.getString("userId", null);
-        token = userInfo.getString("token", null);
+    private void findId() {
         lv = (ListView) v.findViewById(R.id.act_plan_lv);
         TextView emptyView = new TextView(getContext());
         ((ViewGroup) lv.getParent()).addView(emptyView);
         lv.setEmptyView(emptyView);
+    }
 
+    public void initListener() {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -78,7 +77,11 @@ public class QuestionListFragment extends BaseFragment {
         });
     }
 
-    private void getData() {
+    private void initData() {
+        SharedPreferences userInfo = getActivity().getSharedPreferences("userinfo", MODE_PRIVATE);
+        userId = userInfo.getString("userId", null);
+        token = userInfo.getString("token", null);
+
         if(!HttpUtil.isNetworkAvailable(getActivity())){
             showToast("当前网络不可用");
         } else {
