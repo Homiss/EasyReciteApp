@@ -72,7 +72,7 @@
         android:layout_below="@id/frag_home_recite"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/frag_home_reciteway"
+            android:id="@+id/frag_home_recitemodel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
