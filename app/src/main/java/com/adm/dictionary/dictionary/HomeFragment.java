@@ -56,6 +56,7 @@ public class HomeFragment extends BaseFragment {
     private TextView groupNameTv;
     private TextView sumCountTv;
     private TextView modifyGroupTv;
+    private TextView modifyRecitewayTv;
 
     private Setting setting;
 
@@ -77,6 +78,7 @@ public class HomeFragment extends BaseFragment {
         groupNameTv = findTextViewbyId(v, R.id.frag_home_group_name);
         sumCountTv = findTextViewbyId(v, R.id.frag_home_sum_count);
         modifyGroupTv = findTextViewbyId(v, R.id.frag_home_modifygroup);
+        modifyRecitewayTv = findTextViewbyId(v, R.id.frag_home_reciteway);
     }
 
     public void initListener() {
@@ -105,6 +107,16 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
+        modifyRecitewayTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!HttpUtil.isNetworkAvailable(getActivity())) {
+                    showToast("当前网络不可用");
+                } else {
+                    recitewayDialog();
+                }
+            }
+        });
     }
 
     private void getMineGroups() {
@@ -196,6 +208,20 @@ public class HomeFragment extends BaseFragment {
                         currentGroupId = groupsArray.optJSONObject(position).optInt("id");
                         dialog.dismiss();
                         modifyReciteGroup();
+                    }
+                }, currentPosition)
+                .showIcon(false).create();
+        dialog.show();
+    }
+
+    private void recitewayDialog() {
+        dialog = new CBDialogBuilder(getContext(), CBDialogBuilder.DIALOG_STYLE_NORMAL)
+                .setTitle("题库更换")
+                .setItems(new String[]{"顺序背题", "随机背题"}, new CBDialogBuilder.onDialogItemClickListener() {
+                    @Override
+                    public void onDialogItemClick(CBDialogBuilder.DialogItemAdapter ItemAdapter, Context context, CBDialogBuilder dialogbuilder, Dialog dialog, int position) {
+                        showToast(String.valueOf(position));
+                        dialog.dismiss();
                     }
                 }, currentPosition)
                 .showIcon(false).create();
