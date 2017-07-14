@@ -1,7 +1,9 @@
 package com.adm.dictionary.dictionary;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.CardView;
@@ -10,13 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.adm.dictionary.base.BaseFragment;
 import com.adm.dictionary.bean.PlanCount;
 import com.adm.dictionary.http.HttpMethods;
 import com.adm.dictionary.util.HttpUtil;
+import com.jaeger.library.StatusBarUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;

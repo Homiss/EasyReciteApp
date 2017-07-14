@@ -2,19 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:paddingTop="22dp"
+    android:orientation="vertical"
+    android:background="@color/blue">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:id="@+id/frag_que_title">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/blue"
             android:gravity="center_vertical"
             android:paddingLeft="20dp"
             android:text="题库列表"
+            android:background="@color/blue"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -33,6 +36,7 @@
         android:id="@+id/act_plan_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:divider="@null" />
 
 </LinearLayout>
