@@ -131,4 +131,13 @@ public interface ApiService {
     Observable<ResponseBody> modifyReciteGroup(@Query("userId") String userId,
                                                @Query("token") String token,
                                                @Query("groupId") Integer groupId);
+
+    /**
+     * 获取我的已背的题目列表
+     * @param userId
+     * @param token
+     * @return
+     */
+    Observable<ResponseBody> getReciteQuestions(@Query("userId") String userId,
+                                                @Query("token") String token);
 }

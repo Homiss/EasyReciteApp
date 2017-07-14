@@ -17,8 +17,9 @@ import android.widget.ImageView;
 
 import com.adm.dictionary.base.BaseFragment;
 import com.adm.dictionary.behavior.AppBarLayoutOverScrollViewBehavior;
-import com.adm.dictionary.fragment.ItemFragment;
+import com.adm.dictionary.fragment.GroupItemFragment;
 import com.adm.dictionary.fragment.MyFragmentPagerAdapter;
+import com.adm.dictionary.fragment.QuestionItemFragment;
 import com.adm.dictionary.fragment.dummy.TabEntity;
 import com.adm.dictionary.widget.CircleImageView;
 import com.adm.dictionary.widget.RoundProgressBar;
@@ -29,7 +30,6 @@ import com.jaeger.library.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Administrator on 2016/10/18.
@@ -88,7 +88,6 @@ public class MineFragment extends BaseFragment {
     private void initTab() {
         fragments = getFragments();
         MyFragmentPagerAdapter myFragmentPagerAdapter = new MyFragmentPagerAdapter(getActivity().getSupportFragmentManager(), fragments, getNames());
-
         mTablayout.setTabData(mTabEntities);
         mViewPager.setAdapter(myFragmentPagerAdapter);
     }
@@ -236,20 +235,17 @@ public class MineFragment extends BaseFragment {
      * @return
      */
     public String[] getNames() {
-        String[] mNames = new String[]{"Weather", "Moon", "Like", "Fans"};
+        String[] mNames = new String[]{"我的题库", "已背题目"};
         for (String str : mNames) {
-            mTabEntities.add(new TabEntity(String.valueOf(new Random().nextInt(200)), str));
+            mTabEntities.add(new TabEntity("", str));
         }
-
         return mNames;
     }
 
     public List<Fragment> getFragments() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new ItemFragment());
-        fragments.add(new ItemFragment());
-        fragments.add(new ItemFragment());
-        fragments.add(new ItemFragment());
+        fragments.add(new GroupItemFragment());
+        fragments.add(new QuestionItemFragment());
         return fragments;
     }
 }

@@ -102,4 +102,8 @@ public class HttpMethods {
     public Observable<ResponseBody> modifyReciteGroup(String userId, String token, Integer groupId) {
         return service4.modifyReciteGroup(userId, token, groupId);
     }
+
+    public Observable<ResponseBody> getReciteQuestions(String userId, String token) {
+        return service4.getReciteQuestions(userId, token);
+    }
 }

@@ -132,7 +132,6 @@ public class HomeFragment extends BaseFragment {
                     e.printStackTrace();
                 }
                 if (obj.optBoolean("success")) {
-                    System.out.println(res);
                     groupsArray = obj.optJSONArray("data");
                     groups = new String[groupsArray.length()];
                     for(int i = 0; i < groupsArray.length(); i++){

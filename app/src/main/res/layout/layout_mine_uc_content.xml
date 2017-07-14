@@ -44,28 +44,6 @@
                 android:layout_height="1dp"
                 android:background="#f5f5f5" />
 
-            <LinearLayout
-                android:id="@+id/tag_ocreate_ll"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="15dp"
-                    android:text="Tags"
-                    android:textColor="#cc333333"
-                    android:textSize="12sp" />
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/tag_recyclerview"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                </android.support.v7.widget.RecyclerView>
-
-            </LinearLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

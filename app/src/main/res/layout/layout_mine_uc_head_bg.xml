@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/uc_zoomiv"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="260dp"
             android:background="@drawable/ic_bg"
             android:scaleType="centerCrop"
             android:tag="overScroll" />
