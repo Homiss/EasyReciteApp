@@ -35,11 +35,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences userInfo = getSharedPreferences("userinfo", MODE_PRIVATE);
+        token = userInfo.getString("token", null);
+        if(token == null){
+            Intent intent = new Intent(this, LoginAndRegistActivity.class);
+            startActivity(intent);
+            return;
+        }
         findId();
         initListener();
     }
 
     private void findId() {
+
         lin1 = findLinById(R.id.act_main_lin1);
         lin2 = findLinById(R.id.act_main_lin2);
         lin3 = findLinById(R.id.act_main_lin3);
@@ -67,14 +76,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         lin1.setOnClickListener(this);
         lin2.setOnClickListener(this);
         lin3.setOnClickListener(this);
-
-        SharedPreferences userInfo = getSharedPreferences("userinfo", MODE_PRIVATE);
-        token = userInfo.getString("token", null);
-        if(token == null){
-            Intent intent = new Intent(this, LoginAndRegistActivity.class);
-            startActivity(intent);
-            return;
-        }
 
         /**
          * 设置ViewPager的滑动事件
