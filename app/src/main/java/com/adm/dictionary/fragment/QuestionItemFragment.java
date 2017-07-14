@@ -44,7 +44,7 @@ public class QuestionItemFragment extends BaseFragment {
 
     private View view;
     private String userId, token;
-    private String[] groups;
+    private String[] questions;
 
     public QuestionItemFragment() {
     }
@@ -73,8 +73,8 @@ public class QuestionItemFragment extends BaseFragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             List<DummyContent.DummyItem> items = new ArrayList<DummyContent.DummyItem>();
-            for (int i = 1; i <= groups.length; i++) {
-                items.add(new DummyContent.DummyItem(String.valueOf(i), groups[i - 1], "hahah"));
+            for (int i = 1; i <= questions.length; i++) {
+                items.add(new DummyContent.DummyItem(String.valueOf(i), questions[i - 1], "hahah"));
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter(items));
         }
@@ -100,10 +100,10 @@ public class QuestionItemFragment extends BaseFragment {
                     e.printStackTrace();
                 }
                 if (obj.optBoolean("success")) {
-                    JSONArray groupsArray = obj.optJSONArray("data");
-                    groups = new String[groupsArray.length()];
-                    for(int i = 0; i < groupsArray.length(); i++){
-                        groups[i] = groupsArray.optJSONObject(i).optString("name");
+                    JSONArray itemsArray = obj.optJSONArray("data");
+                    questions = new String[itemsArray.length()];
+                    for(int i = 0; i < itemsArray.length(); i++){
+                        questions[i] = itemsArray.optJSONObject(i).optString("question");
                     }
                     setAdapter();
                 } else {

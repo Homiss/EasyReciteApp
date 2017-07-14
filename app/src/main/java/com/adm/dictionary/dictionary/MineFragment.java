@@ -237,7 +237,7 @@ public class MineFragment extends BaseFragment {
     public String[] getNames() {
         String[] mNames = new String[]{"我的题库", "已背题目"};
         for (String str : mNames) {
-            mTabEntities.add(new TabEntity("", str));
+            mTabEntities.add(new TabEntity(str, ""));
         }
         return mNames;
     }

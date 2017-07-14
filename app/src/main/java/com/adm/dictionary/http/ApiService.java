@@ -138,6 +138,7 @@ public interface ApiService {
      * @param token
      * @return
      */
+    @POST("/easyRecite/api/app/recite/v1/finish/record")
     Observable<ResponseBody> getReciteQuestions(@Query("userId") String userId,
                                                 @Query("token") String token);
 }
