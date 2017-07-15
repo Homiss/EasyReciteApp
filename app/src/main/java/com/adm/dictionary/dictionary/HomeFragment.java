@@ -308,11 +308,7 @@ public class HomeFragment extends BaseFragment {
         super.onDestroy();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
 
-    }
 
     public void setViewpager(ViewPager viewpager) {
         this.viewpager = viewpager;

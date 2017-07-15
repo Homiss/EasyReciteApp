@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
+
 /**
  * Created by Administrator on 2016/10/18.
  */
@@ -38,5 +40,15 @@ public abstract class BaseFragment extends Fragment {
         Toast.makeText(getActivity(), str, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart("BaseFragment"); // 统计页面
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd("BaseFragment"); // 统计页面
+    }
 }

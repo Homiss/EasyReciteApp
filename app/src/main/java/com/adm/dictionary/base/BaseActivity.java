@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.umeng.analytics.MobclickAgent;
+
 /**
  * Created by Administrator on 2016/10/18.
  */
@@ -37,4 +39,15 @@ public abstract class BaseActivity extends FragmentActivity {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);// 友盟统计[统计时长]，父类添加后子类不用重复添加
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);// 友盟统计[统计时长]，父类添加后子类不用重复添加
+    }
 }
