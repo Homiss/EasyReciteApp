@@ -14,9 +14,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.adm.dictionary.base.BaseActivity;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
@@ -26,13 +28,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private ViewPager viewpager;
     private ImageView imgs[];
     private TextView tvs[];
-    private int imgId[] = new int[]{R.mipmap.homeon, R.mipmap.liston, R.mipmap.accounton, R.mipmap.homeoff, R.mipmap.listoff, R.mipmap.accountoff};
+    private int imgId[] = new int[]{R.drawable.homeon, R.drawable.liston, R.drawable.accounton, R.drawable.homeoff, R.drawable.listoff, R.drawable.accountoff};
     private List<Fragment> fragments = new ArrayList<>();
     private MyPagerAdapter pagerAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MobclickAgent.setDebugMode( true ); // 友盟集成测试
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

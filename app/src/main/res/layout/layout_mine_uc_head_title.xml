@@ -19,7 +19,7 @@
             android:id="@+id/title_uc_avater"
             android:layout_width="60px"
             android:layout_height="60px"
-            android:src="@drawable/ic_avater" />
+            android:src="@drawable/head" />
 
         <TextView
             android:id="@+id/title_uc_title"

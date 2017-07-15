@@ -267,7 +267,10 @@ public class Html5Activity extends BaseActivity {
                 super.onPageFinished(view, url);
                 labelTv.setText("正在背题(" + (position + 1) + "/" + sumCount + ")");
                 questionTv.setText(list.get(position).getQuestion());
-                mWebView.loadUrl("javascript:actionFromNativeWithParam(" + "'" + list.get(position).getAnswer() + "'" + ")");
+                if(mWebView != null){
+                    mWebView.loadUrl("javascript:actionFromNativeWithParam(" + "'" + list.get(position).getAnswer() + "'" + ")");
+                }
+
             }
 
             //网络错误时回调的方法
