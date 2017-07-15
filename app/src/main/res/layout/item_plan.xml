@@ -37,18 +37,6 @@
                 android:layout_below="@+id/item_question_name"
                 />
 
-            <TextView
-                android:id="@+id/item_question_joinnum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="3dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="20dp"
-                android:textSize="15sp"
-                android:text="已有164人参加"
-                android:layout_below="@+id/item_question_num"
-                />
-
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

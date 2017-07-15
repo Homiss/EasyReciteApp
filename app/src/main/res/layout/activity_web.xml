@@ -56,7 +56,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:text="答案调整？"
+                        android:text=""
                         android:textColor="@color/blue"
                         android:visibility="gone" />
                     <EditText
