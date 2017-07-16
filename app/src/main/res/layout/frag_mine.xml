@@ -23,7 +23,7 @@
             android:clipToPadding="false"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:elevation="0dp"
-            app:layout_behavior="com.adm.dictionary.behavior.AppBarLayoutOverScrollViewBehavior">
+            app:layout_behavior="com.adm.dictionary.core.behavior.AppBarLayoutOverScrollViewBehavior">
 
 
             <android.support.design.widget.CollapsingToolbarLayout
@@ -55,7 +55,7 @@
 
         <include layout="@layout/layout_mine_uc_content" />
 
-        <com.adm.dictionary.widget.CircleImageView
+        <com.adm.dictionary.ui.widget.CircleImageView
             android:id="@+id/uc_avater"
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -65,7 +65,7 @@
             app:civ_border_width="2dp"
             app:layout_anchor="@+id/middle_layout"
             app:layout_anchorGravity="top"
-            app:layout_behavior="com.adm.dictionary.behavior.CircleImageInUsercBehavior" />
+            app:layout_behavior="com.adm.dictionary.core.behavior.CircleImageInUsercBehavior" />
 
 
     </android.support.design.widget.CoordinatorLayout>

@@ -15,7 +15,7 @@
         android:gravity="center"
         android:orientation="horizontal">
 
-        <com.adm.dictionary.widget.CircleImageView
+        <com.adm.dictionary.ui.widget.CircleImageView
             android:id="@+id/title_uc_avater"
             android:layout_width="60px"
             android:layout_height="60px"
@@ -29,12 +29,12 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20px"
             android:paddingRight="15dp"
-            android:text="Lover's Day"
+            android:text="Homiss"
             android:textColor="@color/colorBlack33"
             android:textSize="28px" />
     </LinearLayout>
 
-    <com.adm.dictionary.widget.RoundProgressBar
+    <com.adm.dictionary.ui.widget.RoundProgressBar
         android:id="@+id/uc_progressbar"
         android:layout_width="20dp"
         android:layout_height="20dp"

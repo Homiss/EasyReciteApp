@@ -72,6 +72,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.jaeger.statusbarutil:library:1.4.0'
 
+    compile 'com.qianwen:update-app:3.2.7' // 升级更新相关依赖
+
     compile 'com.umeng.analytics:analytics:latest.integration'
 }
 //配置GreenDao代码生成路径

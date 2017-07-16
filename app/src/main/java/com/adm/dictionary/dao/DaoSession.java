@@ -8,9 +8,9 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
-import com.adm.dictionary.bean.Part;
-import com.adm.dictionary.bean.QuestionBean;
-import com.adm.dictionary.bean.WordBean;
+import com.adm.dictionary.entity.Part;
+import com.adm.dictionary.entity.QuestionBean;
+import com.adm.dictionary.entity.WordBean;
 
 import com.adm.dictionary.dao.PartDao;
 import com.adm.dictionary.dao.QuestionBeanDao;
