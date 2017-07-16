@@ -96,10 +96,10 @@ public class Html5Activity extends BaseActivity {
         unshow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                position++;
                 if (position < list.size()) {
                     QuestionBean bean = list.get(position);
                     modifyReciteRecord(userId, token, bean.getId(), "-1");
+                    position++;
                 } else {
                     showToast("本次复习结束，继续努力");
                     finish();
@@ -110,10 +110,10 @@ public class Html5Activity extends BaseActivity {
         remember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                position++;
                 if (position < list.size()) {
                     QuestionBean bean = list.get(position);
                     modifyReciteRecord(userId, token, bean.getId(), "1");
+                    position++;
                 } else {
                     showToast("本次复习结束，继续努力");
                     finish();
@@ -124,10 +124,10 @@ public class Html5Activity extends BaseActivity {
         unremember.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                position++;
                 if(position < list.size()){
                     QuestionBean bean = list.get(position);
                     modifyReciteRecord(userId, token, bean.getId(), "0");
+                    position++;
                 } else {
                     showToast("本次复习结束，继续努力");
                     finish();
