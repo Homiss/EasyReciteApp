@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.adm.dictionary.R;
 import com.adm.dictionary.entity.QuestionBean;
-import com.adm.dictionary.dictionary.R;
 import com.adm.dictionary.http.HttpMethods;
 
 import java.util.ArrayList;

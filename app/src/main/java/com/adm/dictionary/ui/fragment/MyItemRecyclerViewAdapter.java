@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adm.dictionary.dictionary.R;
+import com.adm.dictionary.R;
 import com.adm.dictionary.ui.fragment.dummy.DummyContent;
 
 import java.util.List;

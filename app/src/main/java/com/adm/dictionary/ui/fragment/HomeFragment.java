@@ -14,11 +14,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.adm.dictionary.ui.BaseFragment;
-import com.adm.dictionary.entity.Setting;
+import com.adm.dictionary.R;
 import com.adm.dictionary.core.WaveHelper;
-import com.adm.dictionary.dictionary.R;
+import com.adm.dictionary.entity.Setting;
 import com.adm.dictionary.http.HttpMethods;
+import com.adm.dictionary.ui.BaseFragment;
 import com.adm.dictionary.ui.activity.Html5Activity;
 import com.adm.dictionary.ui.activity.LoginAndRegistActivity;
 import com.adm.dictionary.util.HttpUtil;

@@ -10,9 +10,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.adm.dictionary.ui.BaseActivity;
-import com.adm.dictionary.dictionary.R;
+import com.adm.dictionary.R;
 import com.adm.dictionary.http.HttpMethods;
+import com.adm.dictionary.ui.BaseActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -13,11 +13,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.adm.dictionary.R;
 import com.adm.dictionary.ui.BaseActivity;
 import com.adm.dictionary.ui.fragment.HomeFragment;
 import com.adm.dictionary.ui.fragment.MineFragment;
 import com.adm.dictionary.ui.fragment.QuestionListFragment;
-import com.adm.dictionary.dictionary.R;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;

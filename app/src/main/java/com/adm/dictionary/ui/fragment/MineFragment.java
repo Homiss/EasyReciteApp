@@ -15,9 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.adm.dictionary.ui.BaseFragment;
+import com.adm.dictionary.R;
 import com.adm.dictionary.core.behavior.AppBarLayoutOverScrollViewBehavior;
-import com.adm.dictionary.dictionary.R;
+import com.adm.dictionary.ui.BaseFragment;
 import com.adm.dictionary.ui.fragment.dummy.TabEntity;
 import com.adm.dictionary.ui.widget.CircleImageView;
 import com.adm.dictionary.ui.widget.RoundProgressBar;

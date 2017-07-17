@@ -21,8 +21,7 @@ import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.adm.dictionary.dictionary.R;
-
+import com.adm.dictionary.R;
 
 /**
  * Created by wxy on 16/6/27.

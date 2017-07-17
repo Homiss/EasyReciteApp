@@ -22,11 +22,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.adm.dictionary.ui.BaseActivity;
-import com.adm.dictionary.entity.QuestionBean;
+import com.adm.dictionary.R;
 import com.adm.dictionary.core.Html5WebView;
-import com.adm.dictionary.dictionary.R;
+import com.adm.dictionary.entity.QuestionBean;
 import com.adm.dictionary.http.HttpMethods;
+import com.adm.dictionary.ui.BaseActivity;
 import com.adm.dictionary.util.HttpUtil;
 
 import org.json.JSONArray;
@@ -272,7 +272,6 @@ public class Html5Activity extends BaseActivity {
                 if(mWebView != null){
                     mWebView.loadUrl("javascript:actionFromNativeWithParam(" + "'" + list.get(position).getAnswer() + "'" + ")");
                 }
-
             }
 
             //网络错误时回调的方法

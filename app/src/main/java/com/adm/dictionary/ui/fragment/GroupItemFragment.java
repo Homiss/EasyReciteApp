@@ -11,11 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.adm.dictionary.R;
+import com.adm.dictionary.http.HttpMethods;
 import com.adm.dictionary.ui.BaseFragment;
 import com.adm.dictionary.ui.activity.LoginAndRegistActivity;
-import com.adm.dictionary.dictionary.R;
 import com.adm.dictionary.ui.fragment.dummy.DummyContent;
-import com.adm.dictionary.http.HttpMethods;
 
 import org.json.JSONArray;
 import org.json.JSONException;

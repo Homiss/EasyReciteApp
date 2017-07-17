@@ -13,10 +13,10 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.adm.dictionary.ui.BaseFragment;
+import com.adm.dictionary.R;
 import com.adm.dictionary.entity.PlanCount;
-import com.adm.dictionary.dictionary.R;
 import com.adm.dictionary.http.HttpMethods;
+import com.adm.dictionary.ui.BaseFragment;
 import com.adm.dictionary.ui.activity.LoginAndRegistActivity;
 import com.adm.dictionary.ui.activity.QuestionActivity;
 import com.adm.dictionary.util.HttpUtil;

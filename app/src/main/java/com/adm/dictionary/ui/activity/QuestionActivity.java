@@ -18,11 +18,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.adm.dictionary.ui.BaseActivity;
-import com.adm.dictionary.entity.QuestionBean;
+import com.adm.dictionary.R;
 import com.adm.dictionary.core.Html5WebView;
-import com.adm.dictionary.dictionary.R;
+import com.adm.dictionary.entity.QuestionBean;
 import com.adm.dictionary.http.HttpMethods;
+import com.adm.dictionary.ui.BaseActivity;
 import com.adm.dictionary.util.HttpUtil;
 
 import org.json.JSONArray;
@@ -74,7 +74,7 @@ public class QuestionActivity extends BaseActivity {
         mWebView = new Html5WebView(getApplicationContext());
         mWebView.setLayoutParams(params);
         webLayout.addView(mWebView);
-        mWebView.loadUrl("http://wyx.gege5.cn/pages/thread.html?v=3");
+        mWebView.loadUrl("http://wyx.gege5.cn/pages/show_all.html");
     }
 
     private void initListener() {
@@ -167,7 +167,12 @@ public class QuestionActivity extends BaseActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                mWebView.loadUrl("javascript:actionFromNativeWithParam(" + "'" + list.get(0).getAnswer() + "'" + ")");
+                if(list != null && list.size() != 0){
+                    for(QuestionBean q : list){
+                        String h5 = "<h3 id=\"" + q.getQuestion() + "\">" + q.getQuestion() + "</h3>" + q.getAnswer();
+                        mWebView.loadUrl("javascript:actionFromNativeWithParam(" + "'" + h5 + "'" + ")");
+                    }
+                }
             }
 
             //网络错误时回调的方法
