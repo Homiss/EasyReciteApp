@@ -42,8 +42,6 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
-import static com.umeng.analytics.pro.x.R;
-
 public class Html5Activity extends BaseActivity {
 
     private String userId, token;
