@@ -42,6 +42,8 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
+import static com.umeng.analytics.pro.x.R;
+
 public class Html5Activity extends BaseActivity {
 
     private String userId, token;
@@ -98,8 +100,8 @@ public class Html5Activity extends BaseActivity {
             public void onClick(View v) {
                 if (position < list.size()) {
                     QuestionBean bean = list.get(position);
-                    modifyReciteRecord(userId, token, bean.getId(), "-1");
                     position++;
+                    modifyReciteRecord(userId, token, bean.getId(), "-1");
                 } else {
                     showToast("本次复习结束，继续努力");
                     finish();
@@ -112,8 +114,8 @@ public class Html5Activity extends BaseActivity {
             public void onClick(View v) {
                 if (position < list.size()) {
                     QuestionBean bean = list.get(position);
-                    modifyReciteRecord(userId, token, bean.getId(), "1");
                     position++;
+                    modifyReciteRecord(userId, token, bean.getId(), "1");
                 } else {
                     showToast("本次复习结束，继续努力");
                     finish();
@@ -126,8 +128,8 @@ public class Html5Activity extends BaseActivity {
             public void onClick(View view) {
                 if(position < list.size()){
                     QuestionBean bean = list.get(position);
-                    modifyReciteRecord(userId, token, bean.getId(), "0");
                     position++;
+                    modifyReciteRecord(userId, token, bean.getId(), "0");
                 } else {
                     showToast("本次复习结束，继续努力");
                     finish();
