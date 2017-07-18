@@ -4,6 +4,10 @@
         "source": "/Users/homiss/StudioProjects/EasyRecite/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab.xml"
     },
     {
+        "merged": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/res/merged/androidTest/debug/layout/layout_tab_segment.xml",
+        "source": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab_segment.xml"
+    },
+    {
         "merged": "/Users/homiss/StudioProjects/EasyRecite/tabLayoutLibrary/build/intermediates/res/merged/androidTest/debug/layout/layout_tab_right.xml",
         "source": "/Users/homiss/StudioProjects/EasyRecite/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab_right.xml"
     },
@@ -20,7 +24,27 @@
         "source": "/Users/homiss/StudioProjects/EasyRecite/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab_left.xml"
     },
     {
+        "merged": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/res/merged/androidTest/debug/layout/layout_tab_right.xml",
+        "source": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab_right.xml"
+    },
+    {
+        "merged": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/res/merged/androidTest/debug/layout/layout_tab_top.xml",
+        "source": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab_top.xml"
+    },
+    {
+        "merged": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/res/merged/androidTest/debug/layout/layout_tab_left.xml",
+        "source": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab_left.xml"
+    },
+    {
         "merged": "/Users/homiss/StudioProjects/EasyRecite/tabLayoutLibrary/build/intermediates/res/merged/androidTest/debug/layout/layout_tab_segment.xml",
         "source": "/Users/homiss/StudioProjects/EasyRecite/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab_segment.xml"
+    },
+    {
+        "merged": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/res/merged/androidTest/debug/layout/layout_tab.xml",
+        "source": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab.xml"
+    },
+    {
+        "merged": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/res/merged/androidTest/debug/layout/layout_tab_bottom.xml",
+        "source": "/Users/homiss/StudioProjects/EasyReciteApp/tabLayoutLibrary/build/intermediates/bundles/debug/res/layout/layout_tab_bottom.xml"
     }
 ]
