@@ -1,6 +1,7 @@
 package com.adm.dictionary.ui.fragment;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.adm.dictionary.R;
 import com.adm.dictionary.core.behavior.AppBarLayoutOverScrollViewBehavior;
@@ -29,10 +31,14 @@ import com.jaeger.library.StatusBarUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by Administrator on 2016/10/18.
  */
 public class MineFragment extends BaseFragment {
+
+    private String name, headpic;
 
     private View v;
 
@@ -46,6 +52,8 @@ public class MineFragment extends BaseFragment {
     private CircleImageView mAvater;
     private CommonTabLayout mTablayout;
     private ViewPager mViewPager;
+    private TextView mUsernameTv;
+    private TextView mUsernameTitleTv;
 
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     private List<Fragment> fragments;
@@ -55,13 +63,18 @@ public class MineFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.frag_mine, null);
+
+        SharedPreferences userInfo = getActivity().getSharedPreferences("userinfo", MODE_PRIVATE);
+        name = userInfo.getString("name", null);
+        headpic = userInfo.getString("headpic", null);
+
         findId();
+        initData();
         initListener();
         initTab();
         initStatus();
         return v;
     }
-
 
     /**
      * 初始化id
@@ -78,6 +91,13 @@ public class MineFragment extends BaseFragment {
         mAvater = (CircleImageView) v.findViewById(R.id.uc_avater);
         mTablayout = (CommonTabLayout) v.findViewById(R.id.uc_tablayout);
         mViewPager = (ViewPager) v.findViewById(R.id.uc_viewpager);
+        mUsernameTv = (TextView) v.findViewById(R.id.frag_uc_nickname_tv);
+        mUsernameTitleTv = (TextView) v.findViewById(R.id.title_uc_title);
+    }
+
+    private void initData() {
+        mUsernameTv.setText(name);
+        mUsernameTitleTv.setText(name);
     }
 
     /**
