@@ -58,8 +58,8 @@ public class HttpMethods {
         return service4.login(phone, password);
     }
 
-    public Observable<ResponseBody> todayReciteTask(String userId, String token, String groupId, int rows){
-        return service4.todayReciteTask(userId, token, groupId, rows);
+    public Observable<ResponseBody> todayReciteTask(String userId, String token, String groupId){
+        return service4.todayReciteTask(userId, token, groupId);
     }
 
     public Observable<ResponseBody> getSetting(String userId, String token) {

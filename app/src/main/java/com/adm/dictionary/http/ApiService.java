@@ -31,7 +31,7 @@ public interface ApiService {
      */
     @POST("/easyRecite/api/app/recite/v1/today/task")
     Observable<ResponseBody> todayReciteTask(@Query("userId") String userId, @Query("token") String token,
-                                                  @Query("groupId") String groupId, @Query("rows") int rows);
+                                                  @Query("groupId") String groupId);
 
     /**
      * 获取用户setting

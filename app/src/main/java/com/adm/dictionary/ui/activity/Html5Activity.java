@@ -180,7 +180,7 @@ public class Html5Activity extends BaseActivity {
         if(!HttpUtil.isNetworkAvailable(this)){
             showToast("当前网络不可用,加载信息失败");
         } else {
-            HttpMethods.getInstance().todayReciteTask(userId, token, groupId, 20).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<ResponseBody>() {
+            HttpMethods.getInstance().todayReciteTask(userId, token, groupId).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<ResponseBody>() {
                 @Override
                 public void call(final ResponseBody responseBody) {
                     JSONObject jsonObj = null;
